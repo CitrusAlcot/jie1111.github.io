@@ -119,7 +119,7 @@ let townNames = ["Beginnersville", "Forest Path", "Merchanton"];
 
 function Wander() {
     this.name = "Wander";
-    this.expMult = 1;
+    this.expMult = 100000;
     this.townNum = 0;
     this.tooltip = _txt("actions>wander>tooltip");
     this.label = _txt("actions>wander>label");
@@ -127,15 +127,19 @@ function Wander() {
     
     this.varName = "Wander";
     this.stats = {
-        Per:.2,
+		Dex:.1,
+		Str:.1,
+        Per:.1,
         Con:.2,
-        Cha:.2,
-        Spd:.3,
-        Luck:.1
+        Cha:.1,
+        Spd:.1,
+		Int:.1,
+        Luck:.1,
+		Soul:.1
     };
     this.affectedBy = ["Buy Glasses"];
     this.manaCost = function() {
-        return mc;
+        return 100;
     };
     this.visible = function() {
         return true;
