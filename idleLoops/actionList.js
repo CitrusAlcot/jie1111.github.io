@@ -1,4 +1,5 @@
 'use strict';
+var mc = 1;
 function translateClassNames(name) {
     if(name === "Wander") {
         return new Wander();
@@ -134,7 +135,7 @@ function Wander() {
     };
     this.affectedBy = ["Buy Glasses"];
     this.manaCost = function() {
-        return 250;
+        return mc;
     };
     this.visible = function() {
         return true;
@@ -171,7 +172,7 @@ function MeetPeople() {
         Soul:.1
     };
     this.manaCost = function() {
-        return 800;
+        return mc;
     };
     this.visible = function() {
         return towns[0].getLevel("Wander") >= 10;
@@ -205,7 +206,7 @@ function Investigate() {
         Luck:.1
     };
     this.manaCost = function() {
-        return 1000;
+        return mc;
     };
     this.visible = function() {
         return towns[0].getLevel("Met") >= 5;
@@ -240,7 +241,7 @@ function ExploreForest() {
     };
     this.affectedBy = ["Buy Glasses"];
     this.manaCost = function() {
-        return 400;
+        return mc;
     };
     this.visible = function() {
         return true;
@@ -282,7 +283,7 @@ function OldShortcut() {
         Luck:.1
     };
     this.manaCost = function() {
-        return 1200;
+        return mc;
     };
     this.visible = function() {
         return true;
@@ -313,7 +314,7 @@ function TalkToHermit() {
         Soul:.2
     };
     this.manaCost = function() {
-        return 2000;
+        return mc;
     };
     this.visible = function() {
         return true;
@@ -347,7 +348,7 @@ function ExploreCity() {
     };
     this.affectedBy = ["Buy Glasses"];
     this.manaCost = function() {
-        return 750;
+        return mc;
     };
     this.visible = function() {
         return true;
@@ -387,7 +388,7 @@ function GetDrunk() {
         addReputation(-1);
     };
     this.manaCost = function() {
-        return 1000;
+        return mc;
     };
     this.visible = function() {
         return true;
@@ -420,7 +421,7 @@ function Apprentice() {
         return guild === "Crafting";
     };
     this.manaCost = function() {
-        return 2000;
+        return mc;
     };
     this.visible = function() {
         return towns[2].getLevel("Drunk") >= 20;
@@ -455,7 +456,7 @@ function Mason() {
         return guild === "Crafting";
     };
     this.manaCost = function() {
-        return 2000;
+        return mc;
     };
     this.visible = function() {
         return towns[2].getLevel("Drunk") >= 40;
@@ -490,7 +491,7 @@ function Architect() {
         return guild === "Crafting";
     };
     this.manaCost = function() {
-        return 2000;
+        return mc;
     };
     this.visible = function() {
         return towns[2].getLevel("Drunk") >= 60;
@@ -531,7 +532,7 @@ function BuyGlasses() {
         addGold(-10);
     };
     this.manaCost = function() {
-        return 50;
+        return mc;
     };
     this.visible = function() {
         return towns[0].getLevel("Wander") >= 3;
@@ -558,7 +559,7 @@ function BuyMana() {
         Luck:.1
     };
     this.manaCost = function() {
-        return 100;
+        return mc;
     };
     this.visible = function() {
         return towns[0].getLevel("Wander") >= 3;
@@ -588,7 +589,7 @@ function TrainStr() {
         return trainingLimits;
     };
     this.manaCost = function() {
-        return 2000;
+        return mc;
     };
     this.visible = function() {
         return towns[0].getLevel("Met") >= 1;
@@ -613,7 +614,7 @@ function ThrowParty() {
         Soul:.2
     };
     this.manaCost = function() {
-        return 1600;
+        return mc;
     };
     this.canStart = function() {
         return reputation >= 2;
@@ -649,7 +650,7 @@ function WarriorLessons() {
         Con:.2
     };
     this.manaCost = function() {
-        return 1000;
+        return mc;
     };
     this.canStart = function() {
         return reputation >= 2;
@@ -683,7 +684,7 @@ function MageLessons() {
         Con:.2
     };
     this.manaCost = function() {
-        return 1000;
+        return mc;
     };
     this.canStart = function() {
         return reputation >= 2;
@@ -719,7 +720,7 @@ function BuySupplies() {
         return 1;
     };
     this.manaCost = function() {
-        return 200;
+        return mc;
     };
     this.canStart = function() {
         return gold >= towns[0].suppliesCost && supplies === 0;
@@ -752,7 +753,7 @@ function Haggle() {
         Soul:.1
     };
     this.manaCost = function() {
-        return 100;
+        return mc;
     };
     this.canStart = function() {
         return reputation >= 1;
@@ -792,7 +793,7 @@ function StartJourney() {
         return 1;
     };
     this.manaCost = function() {
-        return 1000;
+        return mc;
     };
     this.canStart = function() {
         return supplies === 1;
@@ -827,7 +828,7 @@ function SitByWaterfall() {
         return trainingLimits;
     };
     this.manaCost = function() {
-        return 2000;
+        return mc;
     };
     this.visible = function() {
         return towns[1].getLevel("Forest") >= 10;
@@ -854,7 +855,7 @@ function PracticalMagic() {
         Int:.5
     };
     this.manaCost = function() {
-        return Math.ceil(4000 / (1 + towns[1].getLevel("Hermit")/100));
+        return mc;
     };
     this.visible = function() {
         return towns[1].getLevel("Hermit") >= 10;
@@ -892,7 +893,7 @@ function LearnAlchemy() {
         addHerbs(-10);
     };
     this.manaCost = function() {
-        return Math.ceil(5000 / (1 + towns[1].getLevel("Hermit")/100));
+        return mc;
     };
     this.visible = function() {
         return towns[1].getLevel("Hermit") >= 10;
@@ -926,7 +927,7 @@ function BrewPotions() {
         addHerbs(-10);
     };
     this.manaCost = function() {
-        return Math.ceil(4000);
+        return mc;
     };
     this.visible = function() {
         return getSkillLevel("Alchemy") >= 1;
@@ -957,7 +958,7 @@ function TrainDex() {
         return trainingLimits;
     };
     this.manaCost = function() {
-        return 2000;
+        return mc;
     };
     this.visible = function() {
         return towns[1].getLevel("Forest") >= 20;
@@ -985,7 +986,7 @@ function TrainSpd() {
         return trainingLimits;
     };
     this.manaCost = function() {
-        return 2000;
+        return mc;
     };
     this.visible = function() {
         return towns[1].getLevel("Forest") >= 20;
@@ -1014,7 +1015,7 @@ function ContinueOn() {
         return 1;
     };
     this.manaCost = function() {
-        return Math.ceil(8000 - (60 * towns[1].getLevel("Shortcut")));
+        return mc;
     };
     this.visible = function() {
         return true;
@@ -1041,7 +1042,7 @@ function PurchaseMana() {
         Luck:.1
     };
     this.manaCost = function() {
-        return 100;
+        return mc;
     };
     this.visible = function() {
         return true;
@@ -1069,7 +1070,7 @@ function SellPotions() {
         Luck:.1
     };
     this.manaCost = function() {
-        return 1000;
+        return mc;
     };
     this.visible = function() {
         return true;
@@ -1103,7 +1104,7 @@ function ReadBooks() {
         return glasses;
     };
     this.manaCost = function() {
-        return 2000;
+        return mc;
     };
     this.visible = function() {
         return towns[2].getLevel("City") >= 5;
@@ -1140,7 +1141,7 @@ function GatherTeam() {
         addGold(-(teamNum)*200); //cost comes after finish
     };
     this.manaCost = function() {
-        return 2000;
+        return mc;
     };
     this.visible = function() {
         return towns[2].getLevel("Drunk") >= 10;
@@ -1175,7 +1176,7 @@ function CraftArmor() {
         addHide(-2);
     };
     this.manaCost = function() {
-        return 1000;
+        return mc;
     };
     this.visible = function() {
         return towns[2].getLevel("Drunk") >= 15;
@@ -1214,7 +1215,7 @@ function SmashPots() {
         Spd:.6
     };
     this.manaCost = function() {
-        return Math.ceil(50 / (1 + getSkillLevel("Practical")/100));
+        return mc;
     };
     this.visible = function() {
         return true;
@@ -1255,7 +1256,7 @@ function PickLocks() {
         Luck:.1
     };
     this.manaCost = function() {
-        return 400;
+        return mc;
     };
     this.visible = function() {
         return towns[0].getLevel("Wander") >= 3;
@@ -1304,7 +1305,7 @@ function ShortQuest() {
         Soul:.1
     };
     this.manaCost = function() {
-        return 600;
+        return mc;
     };
     this.visible = function() {
         return towns[0].getLevel("Met") >= 1;
@@ -1351,7 +1352,7 @@ function LongQuest() {
         Spd:.2
     };
     this.manaCost = function() {
-        return 1500;
+        return mc;
     };
     this.visible = function() {
         return towns[0].getLevel("Secrets") >= 1;
@@ -1401,7 +1402,7 @@ function WildMana() {
         Soul:.2
     };
     this.manaCost = function() {
-        return Math.ceil(150 / (1 + getSkillLevel("Practical")/100));
+        return mc;
     };
     this.visible = function() {
         return true;
@@ -1440,7 +1441,7 @@ function GatherHerbs() {
         Int:.3
     };
     this.manaCost = function() {
-        return Math.ceil(200 / (1 + towns[1].getLevel("Hermit")/100));
+        return mc;
     };
     this.visible = function() {
         return towns[1].getLevel("Forest") >= 2;
@@ -1480,7 +1481,7 @@ function Hunt() {
         Spd:.4
     };
     this.manaCost = function() {
-        return 800;
+        return mc;
     };
     this.visible = function() {
         return towns[1].getLevel("Forest") >= 10;
@@ -1525,7 +1526,7 @@ function Gamble() {
         addReputation(-1);
     };
     this.manaCost = function() {
-        return 1000;
+        return mc;
     };
     this.visible = function() {
         return true;
@@ -1564,7 +1565,7 @@ function HealTheSick() {
     this.loopStats = ["Per", "Int", "Cha"];
     this.segments = 3;
     this.manaCost = function() {
-        return 2500;
+        return mc;
     };
     this.canStart = function() {
         return reputation >= 1;
@@ -1616,7 +1617,7 @@ function FightMonsters() {
     this.loopStats = ["Spd", "Spd", "Spd", "Str", "Str", "Str", "Con", "Con", "Con"];
     this.segments = 3;
     this.manaCost = function() {
-        return 2000;
+        return mc;
     };
     this.canStart = function() {
         return reputation >= 2;
@@ -1698,7 +1699,7 @@ function SmallDungeon() {
     this.completedTooltip = _txt("actions>small_dungeon>completed_tooltip") +
         ssDivContainer;
     this.manaCost = function() {
-        return 2000;
+        return mc;
     };
     this.canStart = function() {
         let curFloor = Math.floor((towns[this.townNum].SDungeonLoopCounter)/this.segments+.0000001);
@@ -1775,7 +1776,7 @@ function JoinAdvGuild() {
     this.loopStats = ["Str", "Dex", "Con"];
     this.segments = 3;
     this.manaCost = function() {
-        return 3000;
+        return mc;
     };
     this.allowed = function() {
         return 1;
@@ -1860,7 +1861,7 @@ function LargeDungeon() {
         ssDivContainer;
     this.affectedBy = ["Gather Team"];
     this.manaCost = function() {
-        return 6000;
+        return mc;
     };
     this.canStart = function() {
         let curFloor = Math.floor((towns[this.townNum].LDungeonLoopCounter)/this.segments+.0000001);
@@ -1922,7 +1923,7 @@ function CraftingGuild() {
     this.loopStats = ["Int", "Per", "Dex"];
     this.segments = 3;
     this.manaCost = function() {
-        return 3000;
+        return mc;
     };
     this.allowed = function() {
         return 1;
